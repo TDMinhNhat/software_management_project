@@ -1,0 +1,16 @@
+spring:
+  application:
+    name: SoftwareManagementBackend
+  r2dbc:
+    url: r2dbc:mariadb://localhost:3306/software_management
+    username: root
+    password: 123456789
+  flyway:
+    url: jdbc:mariadb://localhost:3306/software_management
+    user: root
+    password: 123456789
+  data:
+    mongodb:
+      database: SoftwareManagement
+      host: localhost
+      port: 27017
