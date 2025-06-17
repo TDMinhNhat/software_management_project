@@ -54,4 +54,16 @@ public class User {
         this.createdAt = this.updatedAt = Timestamp.valueOf(LocalDateTime.now());
         this.status = UserStatus.ACTIVE;
     }
+
+    public User(String firstName, String lastName, boolean sex, LocalDate birthDate, String phoneNumber, String address, String username, String email, String password) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.sex = sex;
+        this.birthDate = birthDate;
+        this.phoneNumber = phoneNumber;
+        this.address = address;
+        this.username = username;
+        this.email = email;
+        this.password = password;
+    }
 }

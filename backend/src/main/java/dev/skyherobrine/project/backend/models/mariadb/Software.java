@@ -42,4 +42,11 @@ public class Software {
         this.createdAt = this.updatedAt = Timestamp.valueOf(LocalDateTime.now());
         this.status = true;
     }
+
+    public Software(String title, String description, String storageName, BigDecimal price) {
+        this.title = title;
+        this.description = description;
+        this.storageName = storageName;
+        this.price = price;
+    }
 }
