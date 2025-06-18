@@ -7,7 +7,6 @@ import org.springframework.data.annotation.Id;
 import org.springframework.data.relational.core.mapping.Column;
 import org.springframework.data.relational.core.mapping.Table;
 
-import java.sql.Timestamp;
 import java.time.LocalDateTime;
 
 @Table(name = "UserRole")
@@ -19,10 +18,10 @@ public class UserRole {
     @Column(value = "role_name")
     private String roleName;
     private boolean status;
-    private Timestamp createdAt;
+    private LocalDateTime createdAt;
 
     public UserRole(String roleName) {
         this.roleName = roleName;
-        this.createdAt = Timestamp.valueOf(LocalDateTime.now());
+        this.createdAt = LocalDateTime.now();
     }
 }
