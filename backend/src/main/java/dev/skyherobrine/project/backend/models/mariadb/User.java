@@ -11,6 +11,7 @@ import org.springframework.data.relational.core.mapping.Table;
 import java.sql.Timestamp;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.util.UUID;
 
 @Table(name = "User")
 @Getter @Setter
@@ -39,8 +40,8 @@ public class User {
     private Timestamp updatedAt;
     private UserStatus status;
 
-    public User(String uuid, String firstName, String lastName, boolean sex, LocalDate birthDate, String phoneNumber, String address, String username, String email, String password, UserRole role) {
-        this.uuid = uuid;
+    public User(String firstName, String lastName, boolean sex, LocalDate birthDate, String phoneNumber, String address, String username, String email, String password, UserRole role) {
+        this.uuid = UUID.randomUUID().toString();
         this.firstName = firstName;
         this.lastName = lastName;
         this.sex = sex;
@@ -56,6 +57,7 @@ public class User {
     }
 
     public User(String firstName, String lastName, boolean sex, LocalDate birthDate, String phoneNumber, String address, String username, String email, String password) {
+        this.uuid = UUID.randomUUID().toString();
         this.firstName = firstName;
         this.lastName = lastName;
         this.sex = sex;
