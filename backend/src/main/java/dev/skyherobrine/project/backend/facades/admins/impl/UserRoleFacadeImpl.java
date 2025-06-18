@@ -12,6 +12,8 @@ import org.springframework.web.bind.annotation.*;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 
+import java.util.Objects;
+
 @RestController
 @RequestMapping("/api/v1/admin/user_role")
 @AllArgsConstructor
@@ -36,9 +38,14 @@ public class UserRoleFacadeImpl implements IAdminFacade<UserRoleDTO,Long> {
         });
     }
 
+    @DeleteMapping("/{id}")
     @Override
-    public Mono<Void> delete(Long aLong) {
-        return null;
+    public Mono<?> delete(@PathVariable("id") Long id) {
+        return userRoleRepository.delete(
+                Objects.requireNonNull(Objects.requireNonNull(userRoleRepository.findById(id).switchIfEmpty(
+                        Mono.error(new EntityNotFoundException("The user role with ID " + id + " does not exist."))
+                )).block())
+        );
     }
 
     @GetMapping("/{id}")
