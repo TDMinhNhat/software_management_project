@@ -10,12 +10,13 @@ import dev.skyherobrine.project.backend.utils.CopyPropertyObject;
 import dev.skyherobrine.project.backend.utils.EncodeDecodeUtil;
 import jakarta.validation.Valid;
 import lombok.AllArgsConstructor;
+import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 import reactor.core.publisher.Mono;
 
 @RestController
 @RequestMapping("/api/v1/authenticate")
-@AllArgsConstructor
+@RequiredArgsConstructor
 public class AuthenticateFacade {
 
     private final UserRepository userRepository;

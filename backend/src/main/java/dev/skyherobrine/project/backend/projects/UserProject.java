@@ -2,10 +2,16 @@ package dev.skyherobrine.project.backend.projects;
 
 import dev.skyherobrine.project.backend.enums.UserStatus;
 import dev.skyherobrine.project.backend.models.mariadb.UserRole;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import java.sql.Timestamp;
 import java.time.LocalDate;
 
+@Data @Builder
+@NoArgsConstructor @AllArgsConstructor
 public class UserProject {
     private Long id;
     private String uuid;

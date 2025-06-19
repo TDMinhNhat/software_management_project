@@ -11,4 +11,6 @@ public interface UserRepository extends R2dbcRepository<User,Long> {
     Mono<User> findUserByEmailOrUsernameAndPassword(String email, String username, String password);
 
     Mono<User> findUserByEmail(String email);
+
+    Mono<User> findUserByUuid(String uuid);
 }
