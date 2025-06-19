@@ -7,7 +7,6 @@ import dev.skyherobrine.project.backend.repositories.mariadb.UserRepository;
 import dev.skyherobrine.project.backend.services.UserService;
 import dev.skyherobrine.project.backend.utils.CopyPropertyObject;
 import jakarta.validation.Valid;
-import lombok.AllArgsConstructor;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 import reactor.core.publisher.Mono;
@@ -15,7 +14,7 @@ import reactor.core.publisher.Mono;
 @RestController
 @RequestMapping("/api/v1/user")
 @RequiredArgsConstructor
-public class UserFace {
+public class UserFacade {
 
     private final UserRepository userRepository;
     private final UserService userService;
@@ -23,7 +22,7 @@ public class UserFace {
     @GetMapping("/info")
     public Mono<UserProject> getUserInfo(@RequestParam("uuid") String userUUID) {
         return userRepository.findUserByUuid(userUUID)
-                .flatMap(user -> Mono.just((UserProject) CopyPropertyObject.copyProperties(new UserProject(), user)));
+                .flatMap(user -> Mono.just((UserProject) CopyPropertyObject.copyProperties(user, new UserProject())));
     }
 
     @PutMapping("/update/{uuid}")

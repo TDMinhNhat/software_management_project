@@ -7,4 +7,9 @@ public class CopyPropertyObject {
         BeanUtils.copyProperties(source, target);
         return target;
     }
+
+    public static Object copyProperties(Object source, Object target, String... ignoreProperties) {
+        BeanUtils.copyProperties(source, target, ignoreProperties);
+        return target;
+    }
 }
