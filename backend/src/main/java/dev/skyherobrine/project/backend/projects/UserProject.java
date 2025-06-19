@@ -23,7 +23,6 @@ public class UserProject {
     private String address;
     private String username;
     private String email;
-    private String password;
     private UserRole role;
     private Timestamp createdAt;
     private Timestamp updatedAt;
